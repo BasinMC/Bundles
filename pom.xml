@@ -112,7 +112,8 @@
 
                     <configuration>
                         <instructions>
-                            <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+                            <Embed-Dependency>*;scope=compile|runtime;inline=true</Embed-Dependency>
+                            <_exportcontents>*;version=${project.version}</_exportcontents>
                         </instructions>
                     </configuration>
                 </plugin>
