@@ -73,6 +73,7 @@
             <artifactId>netty-transport-native-epoll</artifactId>
             <version>${netty.version}</version>
         </dependency>
+        <!-- TODO: Include binaries -->
 
         <dependency>
             <groupId>com.google.protobuf</groupId>
