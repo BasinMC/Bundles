@@ -7,7 +7,7 @@
     <!-- Artifact Information -->
     <groupId>org.basinmc.bundles</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -15,6 +15,7 @@
 
         <authlib.version>1.5.22</authlib.version>
         <fastutil.version>7.0.12_mojang</fastutil.version>
+        <netty.version>4.0.23.Final</netty.version>
     </properties>
 
     <!-- Artifact Metadata -->
@@ -88,6 +89,11 @@
                 <artifactId>fastutil</artifactId>
                 <version>${fastutil.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -138,6 +144,7 @@
     <modules>
         <module>com.mojang.authlib</module>
         <module>it.unimi.dsi.fastutil</module>
+        <module>io.netty.netty-all</module>
     </modules>
 
     <profiles>

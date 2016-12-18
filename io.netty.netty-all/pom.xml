@@ -11,13 +11,27 @@
         <version>1.1</version>
     </parent>
 
+    <!--
+     - Note: We are fully aware that there is published OSGi information for Netty 4.0 available
+     - directly from maven central.
+     -
+     - This bundle is a workaround which is required since Minecraft's current implementation makes
+     - use of netty's internals which are NOT EXPOSED in their OSGi bundles. While we'd prefer to
+     - correct Mojang's use of internals and switch over to real API methods, this would also mean
+     - that our patches grow to an extend which would actively slow down updates making them
+     - borderline impossible to perform.
+     -
+     - Until Mojang fixes this issue themselves (which is unlikely to ever occur), we will keep
+     - this bundle in sync with the netty version used by NMS.
+     -->
+
     <!-- Artifact Information -->
-    <artifactId>it.unimi.dsi.fastutil</artifactId>
-    <version>${fastutil.version}</version>
+    <artifactId>io.netty.netty-all</artifactId>
+    <version>${netty.version}</version>
     <packaging>bundle</packaging>
 
     <!-- Artifact Metadata -->
-    <name>Basin Bundles :: Fastutil</name>
+    <name>Basin Bundles :: Netty (All Modules)</name>
 
     <licenses>
         <license>
@@ -30,8 +44,8 @@
     <!-- Dependencies -->
     <dependencies>
         <dependency>
-            <groupId>it.unimi.dsi</groupId>
-            <artifactId>fastutil</artifactId>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
         </dependency>
     </dependencies>
 
@@ -44,7 +58,7 @@
 
                 <configuration>
                     <instructions>
-                        <Embed-Dependency>fastutil</Embed-Dependency>
+                        <Embed-Dependency>netty-all</Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>
