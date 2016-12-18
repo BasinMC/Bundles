@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent Artifact Information -->
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>org.basinmc.bundles</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <!-- Artifact Information -->
+    <artifactId>com.mojang.authlib</artifactId>
+    <version>${authlib.version}</version>
+    <packaging>bundle</packaging>
+
+    <!-- Artifact Metadata -->
+    <name>Basin Bundles :: Authlib</name>
+
+    <!-- Dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>authlib</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- Build Settings -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+
+                <configuration>
+                    <instructions>
+                        <Embed-Dependency>authlib</Embed-Dependency>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
