@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent Artifact Information -->
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>org.basinmc.bundles</groupId>
+        <version>1.1</version>
+    </parent>
+
+    <!--
+     - This artifact is a workaround which directly removes all log4j extensions from the resulting
+     - authlib bundle.
+     -
+     - This is a direct result of making use of the pax logging library within Basin itself as log4j
+     - would not play nicely within the OSGi environment.
+     -->
+
+    <!-- Artifact Information -->
+    <artifactId>com.mojang.authlib.workaround</artifactId>
+    <version>${authlib.version}</version>
+    <packaging>jar</packaging>
+
+    <!-- Dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>authlib</artifactId>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <!-- Build Settings -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+
+                <configuration>
+                    <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+
+                    <artifactSet>
+                        <includes>
+                            <include>com.mojang:authlib</include>
+                        </includes>
+                    </artifactSet>
+                    <filters>
+                        <filter>
+                            <artifact>com.mojang:authlib</artifact>
+
+                            <includes>
+                                <include>yggdrasil_session_pubkey.der</include>
+                                <include>com/mojang/authlib/**</include>
+                                <include>com/mojang/util/UUIDTypeAdapter.class</include>
+                            </includes>
+                        </filter>
+                    </filters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

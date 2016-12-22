@@ -22,8 +22,9 @@
     <!-- Dependencies -->
     <dependencies>
         <dependency>
-            <groupId>com.mojang</groupId>
-            <artifactId>authlib</artifactId>
+            <groupId>org.basinmc.bundles</groupId>
+            <artifactId>com.mojang.authlib.workaround</artifactId>
+            <version>${authlib.version}</version>
         </dependency>
     </dependencies>
 
@@ -36,7 +37,7 @@
 
                 <configuration>
                     <instructions>
-                        <Embed-Dependency>authlib</Embed-Dependency>
+                        <Embed-Dependency>com.mojang.authlib.workaround</Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>
