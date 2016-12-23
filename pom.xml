@@ -7,7 +7,7 @@
     <!-- Artifact Information -->
     <groupId>org.basinmc.bundles</groupId>
     <artifactId>parent</artifactId>
-    <version>1.2</version>
+    <version>2</version>
     <packaging>pom</packaging>
 
     <properties>

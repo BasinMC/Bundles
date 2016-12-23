@@ -8,12 +8,12 @@
     <parent>
         <artifactId>parent</artifactId>
         <groupId>org.basinmc.bundles</groupId>
-        <version>1.2</version>
+        <version>2</version>
     </parent>
 
     <!-- Artifact Information -->
     <artifactId>com.mojang.authlib</artifactId>
-    <version>${authlib.version}</version>
+    <version>${authlib.version}-r${project.parent.version}</version>
     <packaging>bundle</packaging>
 
     <!-- Artifact Metadata -->
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>org.basinmc.bundles</groupId>
             <artifactId>com.mojang.authlib.workaround</artifactId>
-            <version>${authlib.version}</version>
+            <version>${authlib.version}-r${project.parent.version}</version>
         </dependency>
     </dependencies>
 

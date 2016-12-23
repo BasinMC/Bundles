@@ -8,12 +8,12 @@
     <parent>
         <artifactId>parent</artifactId>
         <groupId>org.basinmc.bundles</groupId>
-        <version>1.2</version>
+        <version>2</version>
     </parent>
 
     <!-- Artifact Information -->
     <artifactId>it.unimi.dsi.fastutil</artifactId>
-    <version>${fastutil.version}</version>
+    <version>${fastutil.version}-r${project.parent.version}</version>
     <packaging>bundle</packaging>
 
     <!-- Artifact Metadata -->
